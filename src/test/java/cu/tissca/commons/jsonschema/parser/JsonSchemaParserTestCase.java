@@ -14,7 +14,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by avd on 2016-05-28.
  */
-public class JsonSchemaParserTests {
+public class JsonSchemaParserTestCase {
 
     public static final String SAMPLE_STRING_SCHEMA = "{\n" +
             "    \"type\": \"string\",\n" +
