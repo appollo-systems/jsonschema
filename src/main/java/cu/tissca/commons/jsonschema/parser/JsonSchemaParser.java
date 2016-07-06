@@ -17,7 +17,7 @@ public class JsonSchemaParser {
 
     private enum JsonSchemaType {ARRAY, BOOLEAN, ENUM, INTEGER, NULL, NUMBER, OBJECT, STRING, UNKNOWN}
 
-    
+    ;
     private Map<String, JsonSchemaType> TYPE_MAP = ImmutableMap.<String, JsonSchemaType>builder()
             .put("array", JsonSchemaType.ARRAY)
             .put("boolean", JsonSchemaType.BOOLEAN)
@@ -32,8 +32,12 @@ public class JsonSchemaParser {
 
 
     public JsonSchema parse(String text) throws JsonSchemaParserException {
-        JsonObject json = Json.parse(text);
-        return parseJsonSchema(json);
+        try {
+            JsonObject json = Json.parse(text);
+            return parseJsonSchema(json);
+        } catch (JsonException exception){
+            throw new JsonSchemaParserException("Error in JSON", exception);
+        }
     }
 
     private JsonSchema parseJsonSchema(JsonObject json) throws JsonSchemaParserException {
