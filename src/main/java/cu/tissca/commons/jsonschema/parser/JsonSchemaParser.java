@@ -17,7 +17,7 @@ public class JsonSchemaParser {
 
     private enum JsonSchemaType {ARRAY, BOOLEAN, ENUM, INTEGER, NULL, NUMBER, OBJECT, STRING, UNKNOWN}
 
-    ;
+    
     private Map<String, JsonSchemaType> TYPE_MAP = ImmutableMap.<String, JsonSchemaType>builder()
             .put("array", JsonSchemaType.ARRAY)
             .put("boolean", JsonSchemaType.BOOLEAN)
